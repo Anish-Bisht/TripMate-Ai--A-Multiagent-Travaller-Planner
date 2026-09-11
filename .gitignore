@@ -1,0 +1,76 @@
+# =============================================================================
+# Secrets — never commit
+# =============================================================================
+.env
+.env.*
+# The template carries no secrets and documents which variables are required.
+# NOTE: gitignore has no trailing comments — a comment after a pattern becomes
+# part of the pattern, which silently breaks the rule.
+!.env.example
+
+# =============================================================================
+# Python
+# =============================================================================
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# =============================================================================
+# Node / Next.js
+# =============================================================================
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# =============================================================================
+# Generated data and model caches
+#
+# .cache/ holds the downloaded BGE / BM25 / reranker weights and the evaluation
+# artefacts. Regenerable, and large enough that committing it would dominate the
+# repository.
+# =============================================================================
+.cache/
+
+# =============================================================================
+# Generated documents
+#
+# The Docker PDFs are rendered from the artifact HTML; regenerate with the
+# headless-Chrome command rather than committing them. Delete this line if you
+# decide they should ship as part of the submission.
+# =============================================================================
+docs/*.pdf
+
+# =============================================================================
+# Run logs and scratch output
+# =============================================================================
+*.log
+build.log
+ingest.log
+ingest-nosum.log
+memwatch.log
+
+# =============================================================================
+# Local Docker overrides
+#
+# docker-compose.override.yml is picked up automatically and is per-developer
+# (bind mounts, --reload). The committed docker-compose.yml stays deployable.
+# =============================================================================
+docker-compose.override.yml
+
+# =============================================================================
+# OS and editor noise
+# =============================================================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
