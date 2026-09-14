@@ -29,7 +29,7 @@ client = MultiServerMCPClient(
         "aviationstack-mcp"
       ],
       "env": {
-        "AVIATION_STACK_API_KEY": AVIATION_STACK_API_KEY
+        "AVIATION_STACK_API_KEY": AVIATION_STACK_API_KEY or ""
       }, 
       
     },
@@ -86,7 +86,7 @@ async def initilize_mcp():
 
     aviation_tools = {
         tool.name: tool
-        for toll in tools
+        for tool in tools
         if tool.name != "tavily_search"
     }
 
